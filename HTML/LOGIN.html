@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Login</title>
+
+	<link rel="icon" href="../IMAGES/SIGMA.png" type="image/x-icon">
+    
+    <style>
+        #login-button {
+            margin-top: 10px; /* Add spacing between the button and inputs */
+        }
+    </style>
+    <link rel="stylesheet" href="../CSS/LOGIN.css">
+    <link rel="icon" href="../IMAGES/sigma.png" type="image/x-icon">
+</head>
+<body>
+    <center>
+        <div class="housing">
+            <h1>WELCOME BACK!</h1>
+
+            <!-- Check for the login error session variable and display an error message if it exists -->
+
+
+
+                <div class="border-box">
+                    <form action="../PHP/login.php" method="POST" id="login-form">
+                        <table>
+                            <tr>
+                                <td>Username:</td>
+                                <td><input type="text" name="username" id="username" class="form-input" required></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><input type="password" name="password" id="password" class="form-input" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="submit" value="Login" id="login-button" disabled></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+        </div>    
+    </center>
+
+    <script>
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const loginButton = document.getElementById("login-button");
+
+        function checkFormValidity() {
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (username !== "" && password !== "") {
+                loginButton.removeAttribute("disabled");
+            } else {
+                loginButton.setAttribute("disabled", "true");
+            }
+        }
+
+        // Add event listeners to the input fields for real-time validation
+        usernameInput.addEventListener("input", checkFormValidity);
+        passwordInput.addEventListener("input", checkFormValidity);
+
+        // You can also use this for form submission logic:
+        document.getElementById("login-form").addEventListener("submit", (e) => {
+            if (loginButton.getAttribute("disabled") === "true") {
+                e.preventDefault(); // Prevent form submission if the button is disabled
+                alert("Please fill in all fields.");
+            }
+        });
+    </script>
+</body>
+</html>

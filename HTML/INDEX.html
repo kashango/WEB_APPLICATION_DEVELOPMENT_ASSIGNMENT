@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Rangers</title>
+  <link rel="stylesheet" type="text/css" href="../CSS/INDEX.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/CATALOGUES.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+  <header>
+      <h1>BOOK RANGERS</h1>
+  </header>
+  <main>
+    <!-- Search Bar and Cart Icon -->
+    <div id="search-bar">
+        <input type="text" id="search-input" placeholder="Search for books...">
+        <button id="search-button">Search</button>
+
+        <header>
+            <ul>
+              <i class='fa fa-shopping-cart'>
+                <span class='counter'></span>
+              </i>
+            </ul>
+          </header>
+    </div>
+    <div>
+      <h2>Hello, <?php
+        var_dump($_SESSION); // debugging
+        echo $loggedInUsername; ?>! You are now logged in, what would you love to shop today?</h2>
+    </div>
+    
+    <!-- Book Catalog -->
+    <div id="book-catalog">
+        <!-- Display books here using PHP -->
+        <div class='row'>
+            <div class='product--blue'>
+              <div class='product_inner'>
+                <img src='../IMAGES/DEADLY KEYHOLES.jpg' width='300'>
+                <p style="padding-top: 10px;">DEADLY KEYHOLES</p>
+                <p>Julie Morton</p>
+                <p>Price N$199.99</p>
+                <button>Add to basket</button>
+              </div>
+              <div class='product_overlay'>
+                <h2>Added to basket</h2>
+                <i class='fa fa-check'></i>
+              </div>
+            </div>
+            <div class='product--orange'>
+              <div class='product_inner'>
+                <img src='../IMAGES/THE WICKED KING.jpg' width='300'>
+                <p style="padding-top: 10px;">THE WICKED KING</p>
+                <p>Holly Back</p>
+                <p>Price N$149.99</p>
+                <button>Add to basket</button>
+              </div>
+              <div class='product_overlay'>
+                <h2>Added to basket</h2>
+                <i class='fa fa-check'></i>
+              </div>
+            </div>
+    
+            <br>
+            <div class='product--red'>
+              <div class='product_inner'>
+                <img src='../IMAGES/GHOST PRINCESS.jpg' width='300'>
+                <p style="padding-top: 10px;">GHOST PRINCESS</p>
+                <p>Lana Watts</p>
+                <p>Price N$399.99</p>
+                <button>Add to basket</button>
+              </div>
+              <div class='product_overlay'>
+                <h2>Added to basket</h2>
+                <i class='fa fa-check'></i>
+              </div>
+            </div>
+            <div class='product--green'>
+              <div class='product_inner'>
+                <img src='../IMAGES/HARRY POTTER.jpg' width='300'>
+                <p style="padding-top: 10px;">HARRY POTTER</p>
+                <p>J.K Rowling</p>
+                <p>Price N$299.99</p>
+                <button>Add to basket</button>
+              </div>
+              <div class='product_overlay'>
+                <h2>Added to basket</h2>
+                <i class='fa fa-check'></i>
+              </div>
+            </div>
+            <div class='product--yellow'>
+              <div class='product_inner'>
+                <img src='../IMAGES/THE GREAT GATSBY.jpg' width='300'>
+                <p style="padding-top: 10px;">THE GREAT GATSBY</p>
+                <p>F.Scott Fitzgerald</p>
+                <p>Price N$299.99</p>
+                <button>Add to basket</button>
+              </div>
+              <div class='product_overlay'>
+                <h2>Added to basket</h2>
+                <i class='fa fa-check'></i>
+              </div>
+            </div>
+            <div class='product--pink'>
+              <div class='product_inner'>
+                <img src='../IMAGES/BORING GIRLS.jpg' width='300'>
+                <p style="padding-top: 10px;">BORING GIRLS</p>
+                <p>Sara Taylor</p>
+                <p>Price N$299.99</p>
+                <button>Add to basket</button>
+              </div>
+              <div class='product_overlay'>
+                <h2>Added to basket</h2>
+                <i class='fa fa-check'></i>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+    <!-- Shopping Cart -->
+    <div id="shopping-cart">
+        <!-- Display cart contents here -->
+    </div>
+    
+    <!-- Checkout Form -->
+    <div id="checkout">
+        <!-- Checkout form goes here -->
+    </div>
+  </main>
+
+  <footer>
+      &copy; 2023 Online Bookstore
+  </footer>
+
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- basket icon counter and button reaction  -->
+  <script>
+    $(document).ready(function() {
+
+        "use strict";
+
+        var init = "No items yet!";
+        var counter = 0;
+
+        // Initial Cart
+        $(".counter").html(init);
+
+        // Add Items To Basket
+        function addToBasket() {
+            counter++;
+            $(".counter").html(counter).animate({
+                'opacity' : '0'
+            }, 300, function() {
+                $(".counter").delay(300).animate({
+                    'opacity' : '1'
+                });
+            });
+        }
+
+        // Add To Basket Animation
+        $("button").on("click", function() {
+            addToBasket(); 
+            $(this).parent().parent().find(".product_overlay").css({
+                'transform': ' translateY(0px)',
+                'opacity': '1',
+                'transition': 'all ease-in-out .45s'
+            }).delay(1500).queue(function() {
+                $(this).css({
+                    'transform': 'translateY(-500px)',
+                    'opacity': '0',
+                    'transition': 'all ease-in-out .45s'
+                }).dequeue();
+            });
+
+            var bookTitle = $(this).parent().find("p:first").text(); // Get the book title
+            $.post("../PHP/update_basket.php", { book_title: bookTitle }, function(data) {
+            console.log(data); // Display the response from the PHP script
+            });
+
+        });
+
+
+    });
+  </script>
+</body>
+</html>
