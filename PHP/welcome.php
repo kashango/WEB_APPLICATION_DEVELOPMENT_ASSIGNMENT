@@ -37,19 +37,22 @@ $loggedInUserid = $_SESSION["userid"];
 </head>
 <body>
   <center>
-  <div class="header finisher-header" style="width: 98%; height: 300px; position: relative;">
+  <div class="header finisher-header" style="width: 100%; height: 220px; position: fixed; z-index:10; background-color:#F9C48C;">
+  <div>
+    <img src="../IMAGES/SIGMA.png" alt="LOGO" width="54" height="52" style="position:inherit; top:0px; filter: drop-shadow(3px 3px 3px #ababab);"></img>
     <p1 style="font-family: Bangers; font-size: 50px; color: white; text-shadow: 3px 3px 3px #ababab; padding-top: 20px;padding-left: 20px;">BOOK RANGERS</p1>
-    <div style="position: absolute; top: 70px; left: 50%; transform: translateX(-50%);">
+    
+  </div>  
+    <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%);">
       <input id="searchInput" type="text" placeholder="Search for books..." style="padding: 10px; width: 200px;">
       <button onclick="searchBooks()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Search</button>
     </div>
-    <a style="position: absolute; top: 20px; right: 20px; color: white; font-size: 20px;" href="/WAD Project/PHP/basket.php">BASKET</a>
-    <br>
-    <img src="../IMAGES/SIGMA.png" alt="LOGO" width="54" height="52" style="margin-top: 20px;margin-left: 20px; filter: drop-shadow(0 0 3px white);"></img>
+    <a style="position: absolute; top: 40px; right: 20px; color: black; font-size: 20px;" href="/WAD Project/PHP/basket.php">BASKET</a>
+    <a style="position: absolute; top: 20px; right: 20px; color: black; font-size: 20px;" href="/WAD Project/PHP/logout.php">LOGOUT</a>
     <div style="position: absolute; top: 70px; right: 20px;">
       <ul style="list-style: none; padding: 0; margin: 0;">
         <li style="display: flex; align-items: center;">
-          <i class="fa fa-shopping-cart" style="font-size: 24px; color: white;"></i>
+          <i class="fa fa-shopping-cart" style="font-size: 24px; color: black;"></i>
           <span class='counter' style="margin-left: 5px;"></span>
         </li>
       </ul>
@@ -57,7 +60,7 @@ $loggedInUserid = $_SESSION["userid"];
   </div>  
 
   <main>
-    <div style = "padding-bottom: 40px;">
+    <div style = "padding-bottom: 40px; padding-top: 250px;">
         <h2 style="font-family: Indie Flower; box-sizing: border-box; overflow: visible; font-weight: bold;">Hello, <?php
             echo $loggedInUsername; ?>! You are now logged in, what would you love to shop today? Your shopping ID is: <?php
             echo $loggedInUserid; ?>
@@ -125,7 +128,9 @@ $loggedInUserid = $_SESSION["userid"];
         <div class='row'>
             <div class='product--blue'>
               <div class='product_inner'>
+              <a href="../PHP/review.php">
                 <img src='../IMAGES/DEADLY KEYHOLES.jpg' width='300'>
+              </a>  
                 <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">DEADLY KEYHOLES</p>
                 <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Julie Morton</p>
                 <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$199.99</p>
@@ -390,7 +395,6 @@ $loggedInUserid = $_SESSION["userid"];
   <script src="../JS/popper.min.js"></script>
   <script src="../JS/bootstrap-4.4.1.js"></script>
 
-  <script src="../JS/finisher-header.es5.min.js" type="text/javascript"></script>
 
   <!-- basket icon counter and button reaction  -->
   <script>
