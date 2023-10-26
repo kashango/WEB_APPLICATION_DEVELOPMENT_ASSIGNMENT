@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="../IMAGES/sigma.png" type="image/x-icon">
+
+    <style>
+       
+    </style>
+
     <style>
         :root {
             --primary-color: #4EA685;
@@ -30,11 +36,19 @@
             box-sizing: border-box;
         }
 
+        .password-mismatch {
+            border: 2px solid red;
+        }
+        .password-match {
+            border: 2px solid green;
+        }
+
         html,
         body {
             height: 100vh;
             overflow: hidden;
         }
+
 
         .container {
             position: relative;
@@ -366,45 +380,45 @@
     <div id="container" class="container">
         <!-- FORM SECTION -->
         <div class="row">
-            <!-- SIGN UP -->
-            <div class="col align-items-center flex-col sign-up">
-                <div class="form-wrapper align-items-center">
-                    <div class="form sign-up">
-                        <form action="../PHP/login.php" method="POST" id="login-form" autocomplete="off">
-                        <div class="input-group">
-                            <i class='bx bxs-user'></i>
-                            <input type="text" placeholder="Username">
+                        <!-- REGISTER -->
+                        <div class="col align-items-center flex-col sign-up">
+                            <div class="form-wrapper align-items-center">
+                                <div class="form sign-up">
+                                    <form action="../PHP/register.php" method="POST" id="register-form" autocomplete="off">
+                                        <div class="input-group">
+                                            <i class='bx bxs-user'></i>
+                                            <input type="text" placeholder="Username" name="username" class="form-input" required>
+                                        </div>
+                                        <div class="input-group">
+                                            <i class='bx bxs-lock-alt'></i>
+                                            <input type="password" placeholder="Password" name="password" id="password" class="form-input" required>
+                                        </div>
+                                        <div class="input-group">
+                                            <i class='bx bxs-lock-alt'></i>
+                                            <input type="password" placeholder="Confirm password" name="confirm-password" id="confirm-password" class="form-input" required>
+                                        </div>
+                                        <div class="input-group">
+                                            <i class='bx bx-mail-send'></i>
+                                            <input type="email" placeholder="Email" name="email" class="form-input" required>
+                                        </div>
+                                        <button id="register-button" disabled>
+                                            Register
+                                        </button>
+                                        <p id="password-match-message"></p>
+                                        <p>
+                                            <span>
+                                                Already have an account?
+                                            </span>
+                                            <b onclick="toggle()" class="pointer">
+                                                Login here
+                                            </b>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <i class='bx bx-mail-send'></i>
-                            <input type="email" placeholder="Email">
-                        </div>
-                        <div class="input-group">
-                            <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Password">
-                        </div>
-                        <div class="input-group">
-                            <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Confirm password">
-                        </div>
-                        <button>
-                            Sign up
-                        </button>
-                        <p>
-                            <span>
-                                Already have an account?
-                            </span>
-                            <b onclick="toggle()" class="pointer">
-                                Sign in here
-                            </b>
-                        </p>
-                    </form>
-                    </div>
-                </div>
-
-            </div>
-            <!-- END SIGN UP -->
-            <!-- SIGN IN -->
+                        <!-- END REGISTER -->
+            <!-- LOGIN -->
             <div class="col align-items-center flex-col sign-in">
                 <div class="form-wrapper align-items-center">
                     <div class="form sign-in">
@@ -417,8 +431,11 @@
                             <i class='bx bxs-lock-alt'></i>
                             <input type="password" placeholder="Password" name="password" id="password" class="form-input" required>
                         </div>
+                        <div>
+                            <span id="password-match-message"></span>
+                        </div>
                         <button>
-                            Sign in
+                            Login
                         </button>
                 
                         <p>
@@ -426,7 +443,7 @@
                                 Don't have an account?
                             </span>
                             <b onclick="toggle()" class="pointer">
-                                Sign up here
+                                Register here
                             </b>
                         </p>
                     </form>
@@ -436,7 +453,7 @@
 
                 </div>
             </div>
-            <!-- END SIGN IN -->
+            <!-- END LOGIN -->
         </div>
         <!-- END FORM SECTION -->
         <!-- CONTENT SECTION -->
@@ -475,17 +492,63 @@
    
 
     <script>
-        let container = document.getElementById('container')
+        let container = document.getElementById('container');
 
         toggle = () => {
-            container.classList.toggle('sign-in')
-            container.classList.toggle('sign-up')
-        }
+            container.classList.toggle('sign-in');
+            container.classList.toggle('sign-up');
+        };
 
         setTimeout(() => {
-            container.classList.add('sign-in')
-        }, 200)
+            container.classList.add('sign-in');
+        }, 200);
+
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirm-password");
+        const passwordMatchMessage = document.getElementById("password-match-message");
+        const registerButton = document.getElementById("register-button");
+
+        function checkPasswordMatch() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            if (password === confirmPassword) {
+                confirmPasswordInput.classList.remove("password-mismatch");
+                confirmPasswordInput.classList.add("password-match");
+                passwordMatchMessage.textContent = "Passwords match.";
+            } else {
+                confirmPasswordInput.classList.remove("password-match");
+                confirmPasswordInput.classList.add("password-mismatch");
+                passwordMatchMessage.textContent = "Passwords do not match.";
+            }
+
+            updateRegisterButton();
+        }
+
+        function updateRegisterButton() {
+            const username = document.querySelector('#container .sign-up input[name="username"]').value;
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const email = document.querySelector('#container .sign-up input[name="email"]').value;
+
+            const isFormValid = username.trim() !== "" && password.trim() !== "" && confirmPassword.trim() !== "" && email.trim() !== "" && password === confirmPassword;
+
+            if (isFormValid) {
+                registerButton.removeAttribute("disabled");
+            } else {
+                registerButton.setAttribute("disabled", "true");
+            }
+        }
+
+        passwordInput.addEventListener("input", checkPasswordMatch);
+        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+
+        const formInputs = document.querySelectorAll("#container .sign-up input");
+        formInputs.forEach((input) => {
+            input.addEventListener("input", updateRegisterButton);
+        });
     </script>
+
 </body>
 
 </html>

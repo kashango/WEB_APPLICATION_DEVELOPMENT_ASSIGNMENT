@@ -5,7 +5,7 @@ session_start();
 // Check if the user is authenticated (by checking if a session variable is set)
 if (!isset($_SESSION["username"])) {
     // If not authenticated, redirect back to the login page
-    header("Location: ../HTML/LOGIN.html");
+    header("Location: ../HTML/LOGIN_REGISTER.html");
     exit();
 }
 
@@ -47,6 +47,7 @@ $loggedInUserid = $_SESSION["userid"];
       <input id="searchInput" type="text" placeholder="Search for books..." style="padding: 10px; width: 200px;">
       <button onclick="searchBooks()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Search</button>
     </div>
+
     <a style="position: absolute; top: 40px; right: 20px; color: black; font-size: 20px;" href="/WAD Project/PHP/basket.php">BASKET</a>
     <a style="position: absolute; top: 20px; right: 20px; color: black; font-size: 20px;" href="/WAD Project/PHP/logout.php">LOGOUT</a>
     <div style="position: absolute; top: 70px; right: 20px;">
@@ -128,7 +129,7 @@ $loggedInUserid = $_SESSION["userid"];
         <div class='row'>
             <div class='product--blue'>
               <div class='product_inner'>
-              <a href="../PHP/review.php">
+              <a href="../PHP/review.php?book_title=DEADLY%20KEYHOLES&image_url=../IMAGES/DEADLY%20KEYHOLES.jpg">
                 <img src='../IMAGES/DEADLY KEYHOLES.jpg' width='300'>
               </a>  
                 <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">DEADLY KEYHOLES</p>
@@ -459,47 +460,6 @@ $loggedInUserid = $_SESSION["userid"];
         
       });
 
-    });
-
-
-    // Header and search bar!
-    new FinisherHeader({
-      "count": 10,
-      "size": {
-        "min": 1300,
-        "max": 1500,
-        "pulse": 0
-      },
-      "speed": {
-        "x": {
-          "min": 0.1,
-          "max": 0.6
-        },
-        "y": {
-          "min": 0.1,
-          "max": 0.6
-        }
-      },
-      "colors": {
-        "background": "#9138e5",
-        "particles": [
-          "#ff4848",
-          "#000000",
-          "#2235e5",
-          "#000000",
-          "#ff0000"
-        ]
-      },
-      "blending": "overlay",
-      "opacity": {
-        "center": 0.5,
-        "edge": 0.05
-      },
-      "skew": -2,
-      "shapes": [
-        "c",
-        "t"
-      ]
     });
 
     function searchBooks() {
