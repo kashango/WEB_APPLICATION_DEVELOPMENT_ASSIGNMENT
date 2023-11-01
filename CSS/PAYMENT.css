@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #967969;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #D3D3D3;
+}
+
+.emoji-payment {
+    display: inline-block;
+    font-size: 48px;
+    position: relative;
+}
+
+.emoji-payment .Payments {
+    max-width: 100px; /* Adjust the size as needed */
+    display: block;
+    margin: 0 auto;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #C4A484;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.expiry {
+    display: flex;
+}
+
+.expiry input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.cvv {
+    display: flex;
+}
+
+.cvv input {
+    flex: 1;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: yellow;
+}
+input:hover {
+    background-color: yellow;
+}

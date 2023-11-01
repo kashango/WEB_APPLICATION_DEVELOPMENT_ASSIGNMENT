@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="../IMAGES/sigma.png" type="image/x-icon">
+
+    <style>
+       
+    </style>
+
+    <style>
+:root {
+            --primary-color: #4EA685;
+            --secondary-color: #57B894;
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #efefef;
+            --gray-2: #757575;
+
+            --facebook-color: #4267B2;
+            --google-color: #DB4437;
+            --twitter-color: #1DA1F2;
+            --insta-color: #E1306C;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .password-mismatch {
+            border: 2px solid red;
+        }
+        .password-match {
+            border: 2px solid green;
+        }
+
+        html,
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+
+        .input-group {
+            position: relative;
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            color: var(--gray-2);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            background-color: var(--gray);
+            border-radius: .5rem;
+            border: 0.125rem solid var(--white);
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border: 0.125rem solid var(--primary-color);
+        }
+
+        .form button {
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            padding: .6rem 0;
+            border-radius: .5rem;
+            background-color:
+                var(--primary-color);
+            color: var(--white);
+            font-size: 1.2rem;
+            outline: none;
+        }
+        .align-items-center {
+         
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+    
+
+
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container">
+
+
+
+           <!-- REGISTER -->
+           <div class="col align-items-center flex-col sign-up">
+            <div class="form-wrapper align-items-center">
+                <div class="form sign-up">
+                    <form action="../PHP/register.php" method="POST" id="register-form" autocomplete="off">
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input type="text" placeholder="Username" name="username" class="form-input" required>
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input type="password" placeholder="Password" name="password" id="password" class="form-input" required>
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input type="password" placeholder="Confirm password" name="confirm-password" id="confirm-password" class="form-input" required>
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bx-mail-send'></i>
+                            <input type="email" placeholder="Email" name="email" class="form-input" required>
+                        </div>
+                        <button id="register-button" disabled>
+                            Register
+                        </button>
+                        <p id="password-match-message"></p>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END REGISTER -->
+            <div style=" position: absolute; top: 40%; left: 40%;">
+                <h4>Username already exist, please try another username!</h4>
+            </div>
+            
+
+    </div>
+
+
+   
+
+    <script>
+        let container = document.getElementById('container');
+
+
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirm-password");
+        const passwordMatchMessage = document.getElementById("password-match-message");
+        const registerButton = document.getElementById("register-button");
+
+        function checkPasswordMatch() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            if (password === confirmPassword) {
+                confirmPasswordInput.classList.remove("password-mismatch");
+                confirmPasswordInput.classList.add("password-match");
+                passwordMatchMessage.textContent = "Passwords match.";
+            } else {
+                confirmPasswordInput.classList.remove("password-match");
+                confirmPasswordInput.classList.add("password-mismatch");
+                passwordMatchMessage.textContent = "Passwords do not match.";
+            }
+
+            updateRegisterButton();
+        }
+
+        function updateRegisterButton() {
+            const username = document.querySelector('#container .sign-up input[name="username"]').value;
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const email = document.querySelector('#container .sign-up input[name="email"]').value;
+
+            const isFormValid = username.trim() !== "" && password.trim() !== "" && confirmPassword.trim() !== "" && email.trim() !== "" && password === confirmPassword;
+
+            if (isFormValid) {
+                registerButton.removeAttribute("disabled");
+            } else {
+                registerButton.setAttribute("disabled", "true");
+            }
+        }
+
+        passwordInput.addEventListener("input", checkPasswordMatch);
+        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+
+        const formInputs = document.querySelectorAll("#container .sign-up input");
+        formInputs.forEach((input) => {
+            input.addEventListener("input", updateRegisterButton);
+        });
+    </script>
+
+</body>
+
+</html>
+  

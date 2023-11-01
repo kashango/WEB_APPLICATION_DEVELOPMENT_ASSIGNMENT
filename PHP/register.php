@@ -46,7 +46,7 @@ if ($stmt = $conn->prepare('SELECT userid, password FROM users WHERE username = 
 
 } else {
     // If the form wasn't submitted, redirect to the registration page
-    header("Location: ../HTML/REGISTER.html");
+    header("Location: ../HTML/REGISTER_DENIED.html");
     exit();
 }
 ?>

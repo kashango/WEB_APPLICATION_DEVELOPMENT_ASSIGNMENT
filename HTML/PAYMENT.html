@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/PAYMENT.css">
+	<link rel="icon" href="../IMAGES/SIGMA.png" type="image/x-icon">
+	
+</head>
+<body>
+    <h1>This is a secure 128-bit SSL encrypted payment. You're safe!</h1>
+	<div class="img">
+		<img src="..\IMAGES\Logos-01.png" alt="Payments" height="100" weight="250" ></div>
+    <form>
+	
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+
+        <div class="expiry">
+            <label for="expiryMonth">Expiry Month:</label>
+            <input type="number" id="expiryMonth" name="expiryMonth" placeholder="MM" required>
+
+            <label for "expiryYear">Expiry Year:</label>
+            <input type="number" id="expiryYear" name="expiryYear" placeholder="YYYY" required>
+        </div>
+
+        <label for="cvv">CVV:</label>
+        <div class="cvv">
+            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+        </div>
+
+        <label for="cardName">Full Name on Card:</label>
+        <input type="text" id="cardName" name="cardName" placeholder="John Doe" required>
+		
+
+        <button type="submit">Proceed Payment</button>
+    </form>
+</body>
+</html>

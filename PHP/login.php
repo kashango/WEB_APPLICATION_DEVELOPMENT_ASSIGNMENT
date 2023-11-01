@@ -36,17 +36,17 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 exit();
             } else {
                 // If the provided username and password don't match, redirect with an error
-                header("Location:  ../HTML/LOGIN.html?error=Incorrect Username or Password");
+                header("Location:  ../HTML/LOGIN_DENIED.html?error=Incorrect Username or Password");
                 exit();
             }
         } else {
             // If no match was found, redirect with an error
-            header("Location:  ../HTML/LOGIN.html?error=Incorrect Username or Password");
+            header("Location:  ../HTML/LOGIN_DENIED.html?error=Incorrect Username or Password");
             exit();
         }
     }
 } else {
     // If no valid POST data was received, redirect to the index page
-    header("Location:  ../HTML/LOGIN.html?error=ERROR INTERCEPTING USER DATA");
+    header("Location:  ../HTML/LOGIN_DENIED.html?error=ERROR INTERCEPTING USER DATA");
     exit();
 }

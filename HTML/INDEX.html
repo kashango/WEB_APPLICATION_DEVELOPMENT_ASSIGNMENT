@@ -3,35 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Rangers</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
+
+
+	<link rel="icon" href="../IMAGES/SIGMA.png" type="image/x-icon">
+
+
   <link rel="stylesheet" type="text/css" href="../CSS/INDEX.css">
   <link rel="stylesheet" type="text/css" href="../CSS/CATALOGUES.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/BOOK WALL.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie+Flower">
+  <link href="../CSS/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <header>
-      <h1>BOOK RANGERS</h1>
-  </header>
-  <main>
-    <!-- Search Bar and Cart Icon -->
-    <div id="search-bar">
-        <input type="text" id="search-input" placeholder="Search for books...">
-        <button id="search-button">Search</button>
+  <center>
+  <div class="header finisher-header" style="width: 100%; height: 220px; position: fixed; z-index:10; background-color:#F9C48C;">
+  <div>
+    <img src="../IMAGES/SIGMA.png" alt="LOGO" width="54" height="52" style="position:inherit; top:0px; filter: drop-shadow(3px 3px 3px #ababab);"></img>
+    <p1 style="font-family: Bangers; font-size: 50px; color: white; text-shadow: 3px 3px 3px #ababab; padding-top: 20px;padding-left: 20px;">BOOK RANGERS</p1>
+    
+  </div>  
+    
+    <a style="position: absolute; top: 20px; right: 20px; color: black; font-size: 20px;" href="../HTML/LOGIN_REGISTER.html">Login</a>
+    <br>
+    <a style="position: absolute; top: 40px; right: 20px; color: black; font-size: 20px;" href="../HTML/LOGIN_REGISTER.html">register</a>
+  </div>  
 
-        <header>
-            <ul>
-              <i class='fa fa-shopping-cart'>
-                <span class='counter'></span>
-              </i>
-            </ul>
-          </header>
+  <main>
+    <div style = "padding-bottom: 40px; padding-top: 250px;">
+        <h2 style="font-family: Indie Flower; box-sizing: border-box; overflow: visible; font-weight: bold;">
+          Hello! Login to order books and enjoy reading. New to our site ? Please register!
+        </h2>
     </div>
-    <div>
-      <h2>Hello, <?php
-        var_dump($_SESSION); // debugging
-        echo $loggedInUsername; ?>! You are now logged in, what would you love to shop today?</h2>
+
+    <!-- Book sliding wall -->
+    <article class="wrapper">
+  <div class="marquee">
+    <div class="marquee__group">
+      <img src="../IMAGES/DEADLY KEYHOLES.jpg" alt="Deadly Keyholes" height='300'/>
+      <img src="../IMAGES/THE WICKED KING.jpg" alt="The Wicked King" height='300'/>
+      <img src="../IMAGES/GHOST PRINCESS.jpg" alt="Ghost Princess" height='300'/>
+      <img src="../IMAGES/HARRY POTTER AND THE CURSED CHILD.jpg" alt="Harry Potter" height='300'/>
+      <img src="../IMAGES/THE GREAT GATSBY.jpg" alt="The Great Gatsby" height='300'/>
+      <img src="../IMAGES/BORING GIRLS.jpg" alt="Boring Girls" height='300'/>
+      <img src="../IMAGES/WHATS LEFT OF ME.jpg" alt="What's Left of Me" height='300'/>
+      <img src="../IMAGES/BUTTS A BACKSTORY.avif" alt="Butts: A Backstory" height='300'/>
+      <img src="../IMAGES/THE SUBTLE ART OF NOT GIVING A FUCK.jpeg" alt="Subtle art of not giving a fuck" height='300'/>
     </div>
+
+    <div aria-hidden="true" class="marquee__group">
+      <img src="../IMAGES/DEADLY KEYHOLES.jpg" alt="Deadly Keyholes" height='300'/>
+      <img src="../IMAGES/THE WICKED KING.jpg" alt="The Wicked King" height='300'/>
+      <img src="../IMAGES/GHOST PRINCESS.jpg" alt="Ghost Princess" height='300'/>
+      <img src="../IMAGES/HARRY POTTER AND THE CURSED CHILD.jpg" alt="Harry Potter" height='300'/>
+      <img src="../IMAGES/THE GREAT GATSBY.jpg" alt="The Great Gatsby" height='300'/>
+      <img src="../IMAGES/BORING GIRLS.jpg" alt="Boring Girls" height='300'/>
+      <img src="../IMAGES/WHATS LEFT OF ME.jpg" alt="What's Left of Me" height='300'/>
+      <img src="../IMAGES/BUTTS A BACKSTORY.avif" alt="Butts: A Backstory" height='300'/>
+      <img src="../IMAGES/THE SUBTLE ART OF NOT GIVING A FUCK.jpeg" alt="Subtle art of not giving a fuck" height='300'/>
+    </div>
+  </div>
+
+  <div class="marquee marquee--reverse">
+    <div class="marquee__group">
+      <img src="../IMAGES/ALL THE LIGHT WE CANNOT SEE.jpeg" alt="ALL THE LIGHT WE CANNOT SEE" height='300'/>
+      <img src="../IMAGES/HOUSE OF RULES.jpeg" alt="HOUSE OF RULES" height='300'/>
+      <img src="../IMAGES/IT ENDS WITH US.jpeg" alt="IT ENDS WITH US" height='300'/>
+      <img src="../IMAGES/MY SISTER'S KEEPER.jpeg" alt="MY SISTER'S KEEPER" height='300'/>
+      <img src="../IMAGES/THE ALCHEMIST.jpeg" alt="THE ALCHEMIST" height='300'/>
+      <img src="../IMAGES/THE GIRL WITH THE DRAGON TATTOO.jpeg" alt="THE GIRL WITH THE DRAGON TATTOO" height='300'/>
+      <img src="../IMAGES/THE HUNGER GAMES CATCHING FIRE.jpeg" alt="THE HUNGER GAMES CATCHING FIRE" height='300'/>
+      <img src="../IMAGES/THE HUNGER GAMES THE BALLAD OF SONGBIRDS AND SNAKES.jpeg" alt="THE HUNGER GAMES THE BALLAD OF SONGBIRDS AND SNAKES" height='300'/>
+      <img src="../IMAGES/THE HUNGER GAMES.jpeg" alt="THE HUNGER GAMES" height='300'/>
+    </div>
+
+    <div aria-hidden="true" class="marquee__group">
+    <img src="../IMAGES/ALL THE LIGHT WE CANNOT SEE.jpeg" alt="ALL THE LIGHT WE CANNOT SEE" height='300'/>
+      <img src="../IMAGES/HOUSE OF RULES.jpeg" alt="HOUSE OF RULES" height='300'/>
+      <img src="../IMAGES/IT ENDS WITH US.jpeg" alt="IT ENDS WITH US" height='300'/>
+      <img src="../IMAGES/MY SISTER'S KEEPER.jpeg" alt="MY SISTER'S KEEPER" height='300'/>
+      <img src="../IMAGES/THE ALCHEMIST.jpeg" alt="THE ALCHEMIST" height='300'/>
+      <img src="../IMAGES/THE GIRL WITH THE DRAGON TATTOO.jpeg" alt="THE GIRL WITH THE DRAGON TATTOO" height='300'/>
+      <img src="../IMAGES/THE HUNGER GAMES CATCHING FIRE.jpeg" alt="THE HUNGER GAMES CATCHING FIRE" height='300'/>
+      <img src="../IMAGES/THE HUNGER GAMES THE BALLAD OF SONGBIRDS AND SNAKES.jpeg" alt="THE HUNGER GAMES THE BALLAD OF SONGBIRDS AND SNAKES" height='300'/>
+      <img src="../IMAGES/THE HUNGER GAMES.jpeg" alt="THE HUNGER GAMES" height='300'/>
+    </div>
+  </div>
+</article>
     
     <!-- Book Catalog -->
     <div id="book-catalog">
@@ -40,27 +101,18 @@
             <div class='product--blue'>
               <div class='product_inner'>
                 <img src='../IMAGES/DEADLY KEYHOLES.jpg' width='300'>
-                <p style="padding-top: 10px;">DEADLY KEYHOLES</p>
-                <p>Julie Morton</p>
-                <p>Price N$199.99</p>
-                <button>Add to basket</button>
-              </div>
-              <div class='product_overlay'>
-                <h2>Added to basket</h2>
-                <i class='fa fa-check'></i>
+              </a>  
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">DEADLY KEYHOLES</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Julie Morton</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$199.99</p>
               </div>
             </div>
             <div class='product--orange'>
               <div class='product_inner'>
                 <img src='../IMAGES/THE WICKED KING.jpg' width='300'>
-                <p style="padding-top: 10px;">THE WICKED KING</p>
-                <p>Holly Back</p>
-                <p>Price N$149.99</p>
-                <button>Add to basket</button>
-              </div>
-              <div class='product_overlay'>
-                <h2>Added to basket</h2>
-                <i class='fa fa-check'></i>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">THE WICKED KING</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Holly Back</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$149.99</p>
               </div>
             </div>
     
@@ -68,124 +120,165 @@
             <div class='product--red'>
               <div class='product_inner'>
                 <img src='../IMAGES/GHOST PRINCESS.jpg' width='300'>
-                <p style="padding-top: 10px;">GHOST PRINCESS</p>
-                <p>Lana Watts</p>
-                <p>Price N$399.99</p>
-                <button>Add to basket</button>
-              </div>
-              <div class='product_overlay'>
-                <h2>Added to basket</h2>
-                <i class='fa fa-check'></i>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">GHOST PRINCESS</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Lana Watts</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$399.99</p>
               </div>
             </div>
             <div class='product--green'>
               <div class='product_inner'>
-                <img src='../IMAGES/HARRY POTTER.jpg' width='300'>
-                <p style="padding-top: 10px;">HARRY POTTER</p>
-                <p>J.K Rowling</p>
-                <p>Price N$299.99</p>
-                <button>Add to basket</button>
-              </div>
-              <div class='product_overlay'>
-                <h2>Added to basket</h2>
-                <i class='fa fa-check'></i>
+                <img src='../IMAGES/HARRY POTTER AND THE CURSED CHILD.jpg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">HARRY POTTER AND THE CURSED CHILD</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">J.K Rowling</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$299.99</p>
               </div>
             </div>
             <div class='product--yellow'>
               <div class='product_inner'>
                 <img src='../IMAGES/THE GREAT GATSBY.jpg' width='300'>
-                <p style="padding-top: 10px;">THE GREAT GATSBY</p>
-                <p>F.Scott Fitzgerald</p>
-                <p>Price N$299.99</p>
-                <button>Add to basket</button>
-              </div>
-              <div class='product_overlay'>
-                <h2>Added to basket</h2>
-                <i class='fa fa-check'></i>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">THE GREAT GATSBY</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">F.Scott Fitzgerald</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$299.99</p>
               </div>
             </div>
             <div class='product--pink'>
               <div class='product_inner'>
                 <img src='../IMAGES/BORING GIRLS.jpg' width='300'>
-                <p style="padding-top: 10px;">BORING GIRLS</p>
-                <p>Sara Taylor</p>
-                <p>Price N$299.99</p>
-                <button>Add to basket</button>
-              </div>
-              <div class='product_overlay'>
-                <h2>Added to basket</h2>
-                <i class='fa fa-check'></i>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">BORING GIRLS</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Sara Taylor</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$299.99</p>
               </div>
             </div>
           </div>
     </div>
+
+    <div id="book-catalog">
+        <!-- Display books here using PHP -->
+        <div class='row'>
+            <div class='product--blue'>
+              <div class='product_inner'>
+                <img src='../IMAGES/ALL THE LIGHT WE CANNOT SEE.jpeg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">ALL THE LIGHT WE CANNOT SEE</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Anthony Doerr</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$499.99</p>
+              </div>
+            </div>
+            <div class='product--orange'>
+              <div class='product_inner'>
+                <img src='../IMAGES/HOUSE OF RULES.jpeg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">HOUSE OF RULES</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Jodi Picoult</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$349.99</p>
+              </div>
+            </div>
     
-    <!-- Shopping Cart -->
-    <div id="shopping-cart">
-        <!-- Display cart contents here -->
+            <br>
+            <div class='product--red'>
+              <div class='product_inner'>
+                <img src='../IMAGES/IT ENDS WITH US.jpeg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">IT ENDS WITH US</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Colleen Hoover</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$299.99</p>
+              </div>
+            </div>
+            <div class='product--green'>
+              <div class='product_inner'>
+                <img src="../IMAGES/MY SISTER'S KEEPER.jpeg" width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">MY SISTER'S KEEPER.jpeg</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Jodi Picoult</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$339.99</p>
+              </div>
+            </div>
+            <div class='product--yellow'>
+              <div class='product_inner'>
+                <img src='../IMAGES/THE ALCHEMIST.jpeg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">THE ALCHEMIST</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Paulo Coelho</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$229.99</p>
+              </div>
+            </div>
+            <div class='product--pink'>
+              <div class='product_inner'>
+                <img src='../IMAGES/THE GIRL WITH THE DRAGON TATTOO.jpeg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">THE GIRL WITH THE DRAGON TATTOO</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Stieg Larsson</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$599.99</p>
+              </div>
+          </div>
     </div>
+
+    <div id="book-catalog">
+        <!-- Display books here using PHP -->
+        <div class='row'>
+            <div class='product--blue'>
+              <div class='product_inner'>
+                <img src='../IMAGES/THE HUNGER GAMES CATCHING FIRE.jpeg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">THE HUNGER GAMES CATCHING FIRE</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Suzanne Collins</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$499.99</p>
+              </div>
+            </div>
+            <div class='product--orange'>
+              <div class='product_inner'>
+                <img src='../IMAGES/THE HUNGER GAMES THE BALLAD OF SONGBIRDS AND SNAKES.jpeg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">THE HUNGER GAMES THE BALLAD OF SONGBIRDS AND SNAKES</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Suzanne Collins</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$449.99</p>
+              </div>
+            </div>
     
-    <!-- Checkout Form -->
-    <div id="checkout">
-        <!-- Checkout form goes here -->
+            <br>
+            <div class='product--red'>
+              <div class='product_inner'>
+                <img src='../IMAGES/THE HUNGER GAMES.jpeg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">THE HUNGER GAMES</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Suzanne Collins</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$899.99</p>
+              </div>
+            </div>
+            <div class='product--green'>
+              <div class='product_inner'>
+                <img src="../IMAGES/THE SUBTLE ART OF NOT GIVING A FUCK.jpeg" width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">THE SUBTLE ART OF NOT GIVING A FUCK</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Mark Manson</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$489.99</p>
+              </div>
+            </div>
+            <div class='product--yellow'>
+              <div class='product_inner'>
+                <img src='../IMAGES/BUTTS A BACKSTORY.avif' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">BUTTS A BACKSTORY</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Heather Radke</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$759.99</p>
+              </div>
+              
+            </div>
+            <div class='product--pink'>
+              <div class='product_inner'>
+                <img src='../IMAGES/WHATS LEFT OF ME.jpg' width='300'>
+                <p style="padding-top: 10px; text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">WHATS LEFT OF ME</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Kat Zhang</p>
+                <p style="text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Price N$399.99</p>
+              </div>
+              
+            </div>
+          </div>
     </div>
+
   </main>
 
   <footer>
       &copy; 2023 Online Bookstore
   </footer>
 
+
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+  <script src="../JS/jquery-3.4.1.min.js"></script>
+  <script src="../JS/popper.min.js"></script>
+  <script src="../JS/bootstrap-4.4.1.js"></script>
+
+
   
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- basket icon counter and button reaction  -->
-  <script>
-    $(document).ready(function() {
-
-        "use strict";
-
-        var init = "No items yet!";
-        var counter = 0;
-
-        // Initial Cart
-        $(".counter").html(init);
-
-        // Add Items To Basket
-        function addToBasket() {
-            counter++;
-            $(".counter").html(counter).animate({
-                'opacity' : '0'
-            }, 300, function() {
-                $(".counter").delay(300).animate({
-                    'opacity' : '1'
-                });
-            });
-        }
-
-        // Add To Basket Animation
-        $("button").on("click", function() {
-            addToBasket(); 
-            $(this).parent().parent().find(".product_overlay").css({
-                'transform': ' translateY(0px)',
-                'opacity': '1',
-                'transition': 'all ease-in-out .45s'
-            }).delay(1500).queue(function() {
-                $(this).css({
-                    'transform': 'translateY(-500px)',
-                    'opacity': '0',
-                    'transition': 'all ease-in-out .45s'
-                }).dequeue();
-            });
-
-            var bookTitle = $(this).parent().find("p:first").text(); // Get the book title
-            $.post("../PHP/update_basket.php", { book_title: bookTitle }, function(data) {
-            console.log(data); // Display the response from the PHP script
-            });
-
-        });
-
-
-    });
-  </script>
+  </center>
 </body>
 </html>

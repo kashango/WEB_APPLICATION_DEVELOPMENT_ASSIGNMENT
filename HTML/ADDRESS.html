@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Details</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/ADDRESS.css">
+	<link rel="icon" href="../IMAGES/SIGMA.png" type="image/x-icon">
+	<script src="../JS/bootstrap-4.4.1.js"></script>
+
+</head>
+<body>
+    <h1>Please fill in your shipping address</h1>
+    
+    <form id="payment">
+	<div class="payment">
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" placeholder="Enter your country" required><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" placeholder="Enter your city" required><br>
+
+        <label for="street">Street Name:</label>
+        <input type="text" id="street" name="street" placeholder="Enter your street name" required><br>
+
+        <label for="erf">Erf:</label>
+        <input type="text" id="erf" name="erf" placeholder="Enter your erf" required><br>
+
+        <button type="submit">Proceed</button>
+    </form>
+	</div>
+	<script>
+    // JavaScript to handle form submission and redirection
+    document.getElementById("payment").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        window.location.href = '../HTML/PAYMENT.html';
+    });
+</script>
+
+</body>
+</html>

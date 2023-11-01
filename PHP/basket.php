@@ -8,7 +8,7 @@
     // Check if the user is authenticated (by checking if a session variable is set)
     if (!isset($_SESSION["username"])) {
         // If not authenticated, redirect back to the login page
-        header("Location: ../HTML/LOGIN.html");
+        header("Location: ../HTML/LOGIN_REGISTER.html");
         exit();
     }
 
@@ -20,6 +20,8 @@
     $stmt->bind_param('s', $loggedInUserid);
     $stmt->execute();
     $result = $stmt->get_result();
+
+    $totalPrice = 0; // Initialize total price
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +33,70 @@
     <title>Shopping Basket</title>
 
     <link rel="icon" href="../IMAGES/SIGMA.png" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #shopping-basket {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4EA685;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #57B894;
+        }
+
+        .total-price {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            text-decoration: none;
+            background-color: #4EA685;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+
 </head>
 <body>
     <!-- Shopping basket -->
+    <div>
+        <h1>
+            Your shopping basket
+        </h1>
+    </div>
     <div id="shopping-basket">
         <!-- Display shopping basket -->
         <?php
@@ -51,6 +114,7 @@
                     $priceResult = $stmt->get_result();
                     if ($priceRow = $priceResult->fetch_assoc()) {
                         $bookPrice = $priceRow['price'];
+                        $totalPrice += $bookPrice; // Add the book price to the total
                     }
 
                     echo "<div class='book-item'>";
@@ -61,6 +125,18 @@
             }
         ?>
     </div>
+
+ <!-- Display total price and proceed to payment button -->
+ <div class='total-price'>
+            <b><p>Total Price: N$<?php echo $totalPrice; ?></b></p>
+            <button onclick='proceedToPayment()'>Proceed to Payment</button>
+        </div>
+    </div>
+
+    <!-- Home link -->
+    <a href="../PHP/welcome.php">Home</a>
+    <a style = "top: 20px; right: 120px;" href="../PHP/logout.php">Logout</a>
+    
 
     <script src="../JS/jquery-3.4.1.min.js"></script>
     <script src="../JS/popper.min.js"></script>
@@ -76,7 +152,15 @@
                 location.reload();
             });
         }
+
+        
+        function proceedToPayment() {
+            window.location.href = '../HTML/ADDRESS.html';
+        }
+    
+
     </script>
+
 
 </body>
 </html>

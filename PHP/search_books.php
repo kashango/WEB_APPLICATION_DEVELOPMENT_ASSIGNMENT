@@ -36,29 +36,74 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search results</title>
     <link rel="icon" href="../IMAGES/SIGMA.png" type="image/x-icon">
+
+    <style>
+        /* Style the buttons */
+        .button-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 <body>
     <!-- Search results -->
     <div id="search-results">
-        <?php
-            // Check if there are any rows returned from the query
-            if ($result->num_rows === 0) {
-                echo "<p>No results found!</p>";
-            } else {
-                while ($row = $result->fetch_assoc()) {
-                    $bookTitle = $row['booktitle'];
-                    $bookAuthor = $row['author'];
-                    $bookPrice = $row['price'];
+    <?php
+        // Check if there are any rows returned from the query
+        if ($result->num_rows === 0) {
+            echo "<p>No results found!</p>";
+        } else {
+            while ($row = $result->fetch_assoc()) {
+                $bookTitle = $row['booktitle'];
+                $bookAuthor = $row['author'];
+                $bookPrice = $row['price'];
 
-                    echo "<div class='book-item'>";
-                    echo "<p>Title: " . $bookTitle . "</p>";
-                    echo "<p>Author: " . $bookAuthor . "</p>";
-                    echo "<p>Price: N$" . $bookPrice . "</p>";
-                    echo "</div>";
-                }
+                echo "<div class='book-item'>";
+                echo "<p>Title: " . $bookTitle . "</p>";
+                echo "<p>Author: " . $bookAuthor . "</p>";
+                echo "<p>Price: N$" . $bookPrice . "</p>";
+                echo "<button onclick='addToBasket(\"$bookTitle\")'>Add to Basket</button>";
+                echo "</div>";
             }
-        ?>
+        }
+    ?>
     </div>
+    <div class="button-container">
+        <a class="button" href="../PHP/basket.php">Basket</a>
+        <a class="button" href="../PHP/logout.php">Logout</a>
+        <a class="button" href="../PHP/welcome.php">Home</a>
+    </div>
+
+<script>
+<script>
+    function addToCart(bookTitle) {
+        $.ajax({
+            url: '../PHP/update_basket.php',
+            type: 'POST',
+            data: { book_title: bookTitle },
+            success: function(response) {
+                // Display the response in the console or handle it as needed
+                console.log(response);
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        });
+    }
+</script>
+
+</script>
 
     <script src="../JS/jquery-3.4.1.min.js"></script>
     <script src="../JS/popper.min.js"></script>

@@ -48,8 +48,8 @@ $loggedInUserid = $_SESSION["userid"];
       <button onclick="searchBooks()" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Search</button>
     </div>
 
-    <a style="position: absolute; top: 40px; right: 20px; color: black; font-size: 20px;" href="/WAD Project/PHP/basket.php">BASKET</a>
-    <a style="position: absolute; top: 20px; right: 20px; color: black; font-size: 20px;" href="/WAD Project/PHP/logout.php">LOGOUT</a>
+    <a style="position: absolute; top: 40px; right: 20px; color: black; font-size: 20px;" href="../PHP/basket.php">BASKET</a>
+    <a style="position: absolute; top: 10px; right: 20px; color: black; font-size: 20px;" href="../PHP/logout.php">LOGOUT</a>
     <div style="position: absolute; top: 70px; right: 20px;">
       <ul style="list-style: none; padding: 0; margin: 0;">
         <li style="display: flex; align-items: center;">
